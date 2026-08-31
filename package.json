@@ -1,0 +1,12 @@
+{
+  "name": "todolab-template",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "lint": "node scripts/lint.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "npm run lint && npm run build"
+  }
+}
