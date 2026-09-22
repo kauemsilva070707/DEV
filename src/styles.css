@@ -1,0 +1,105 @@
+:root {
+  color-scheme: dark;
+  --ink: #f4f0e8;
+  --muted: #a7a39a;
+  --night: #101210;
+  --panel: #191c19;
+  --line: #343a34;
+  --acid: #c7ff43;
+  --orange: #ff6b35;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--night);
+  font-family: 'Cascadia Mono', 'Lucida Console', monospace;
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgb(255 255 255 / 4%) 50%, transparent 50.2%),
+    radial-gradient(circle at 76% 16%, rgb(199 255 67 / 12%), transparent 24%),
+    radial-gradient(circle at 14% 85%, rgb(255 107 53 / 9%), transparent 28%);
+}
+
+.shell {
+  position: relative;
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 72px 0 56px;
+}
+
+.masthead { margin-bottom: 48px; }
+.eyebrow, .label { color: var(--muted); font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; }
+.eyebrow span { color: var(--acid); }
+
+h1, h2, p { margin-top: 0; }
+h1 {
+  margin-bottom: 4px;
+  font-family: 'Bodoni MT', Didot, Georgia, serif;
+  font-size: clamp(4.8rem, 14vw, 10rem);
+  line-height: .82;
+  letter-spacing: -.075em;
+}
+h1 span { color: var(--acid); font-style: italic; }
+.thesis { max-width: 560px; color: var(--muted); font-size: .92rem; }
+
+.workbench {
+  border: 1px solid var(--line);
+  background: rgb(25 28 25 / 88%);
+  box-shadow: 18px 18px 0 #090a09;
+}
+
+.workbench__top, .workbench__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 26px;
+}
+.workbench__top { border-bottom: 1px solid var(--line); }
+.workbench__top h2 { margin: 0; font-family: 'Bodoni MT', Didot, Georgia, serif; font-size: 2rem; }
+.label { margin-bottom: 5px; }
+.status { display: flex; align-items: center; gap: 9px; color: var(--acid); font-size: .72rem; text-transform: uppercase; }
+.status__light { width: 9px; height: 9px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 18px var(--acid); }
+
+.composer { display: grid; grid-template-columns: 1fr auto; padding: 26px; border-bottom: 1px solid var(--line); }
+input, button { font: inherit; }
+.composer input { min-width: 0; padding: 17px 18px; color: var(--ink); background: #0f110f; border: 1px solid var(--line); border-right: 0; outline: none; }
+.composer input:focus { border-color: var(--acid); box-shadow: inset 4px 0 0 var(--acid); }
+.composer button { padding: 0 24px; color: #101210; background: var(--acid); border: 1px solid var(--acid); cursor: pointer; font-weight: 500; }
+.composer button:hover { background: var(--ink); border-color: var(--ink); }
+
+.todo-list { list-style: none; margin: 0; padding: 0 26px; }
+.todo { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; min-height: 64px; border-bottom: 1px solid var(--line); animation: arrive .25s ease-out both; }
+.todo input { width: 19px; height: 19px; accent-color: var(--acid); }
+.todo--done span { color: var(--muted); text-decoration: line-through; }
+.remove { color: var(--orange); background: transparent; border: 0; cursor: pointer; font-size: .72rem; text-transform: uppercase; }
+.remove:hover { text-decoration: underline; }
+
+.workbench__footer { color: var(--muted); font-size: .72rem; }
+.workbench__footer p { margin: 0; }
+.build-mark { text-transform: uppercase; }
+
+.contract { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; max-width: 590px; margin: 54px 0 0 auto; }
+.contract__number { color: var(--orange); font-family: 'Bodoni MT', Didot, Georgia, serif; font-size: 4rem; line-height: .8; }
+.contract > div > p:last-child { font-family: 'Bodoni MT', Didot, Georgia, serif; font-size: 1.4rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@keyframes arrive { from { opacity: 0; transform: translateY(-6px); } }
+
+@media (max-width: 620px) {
+  .shell { width: min(100% - 24px, 1100px); padding-top: 44px; }
+  .composer { grid-template-columns: 1fr; }
+  .composer input { border-right: 1px solid var(--line); }
+  .composer button { min-height: 50px; }
+  .workbench__footer { align-items: flex-start; flex-direction: column; }
+  .build-mark { display: none; }
+}

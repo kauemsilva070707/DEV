@@ -1,75 +1,55 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Template • TodoMVC</title>
-		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
-		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
-		<!-- CSS overrides - remove if you don't need it -->
-		<link rel="stylesheet" href="css/app.css">
-	</head>
-	<body>
-		<section class="todoapp">
-			<header class="header">
-				<h1>todos</h1>
-				<input class="new-todo" placeholder="What needs to be done?" autofocus>
-			</header>
-			<!-- This section should be hidden by default and shown when there are todos -->
-			<section class="main">
-				<input id="toggle-all" class="toggle-all" type="checkbox">
-				<label for="toggle-all">Mark all as complete</label>
-				<ul class="todo-list">
-					<!-- These are here just to show the structure of the list items -->
-					<!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
-					<li class="completed">
-						<div class="view">
-							<input class="toggle" type="checkbox" checked>
-							<label>Taste JavaScript</label>
-							<button class="destroy"></button>
-						</div>
-						<input class="edit" value="Create a TodoMVC template">
-					</li>
-					<li>
-						<div class="view">
-							<input class="toggle" type="checkbox">
-							<label>Buy a unicorn</label>
-							<button class="destroy"></button>
-						</div>
-						<input class="edit" value="Rule the web">
-					</li>
-				</ul>
-			</section>
-			<!-- This footer should be hidden by default and shown when there are todos -->
-			<footer class="footer">
-				<!-- This should be `0 items left` by default -->
-				<span class="todo-count"><strong>0</strong> item left</span>
-				<!-- Remove this if you don't implement routing -->
-				<ul class="filters">
-					<li>
-						<a class="selected" href="#/">All</a>
-					</li>
-					<li>
-						<a href="#/active">Active</a>
-					</li>
-					<li>
-						<a href="#/completed">Completed</a>
-					</li>
-				</ul>
-				<!-- Hidden if no completed items are left ↓ -->
-				<button class="clear-completed">Clear completed</button>
-			</footer>
-		</section>
-		<footer class="info">
-			<p>Double-click to edit a todo</p>
-			<!-- Remove the below line ↓ -->
-			<p>Template by <a href="http://sindresorhus.com">Sindre Sorhus</a></p>
-			<!-- Change this out with your name and url ↓ -->
-			<p>Created by <a href="http://todomvc.com">you</a></p>
-			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
-		</footer>
-		<!-- Scripts here. Don't remove ↓ -->
-		<script src="node_modules/todomvc-common/base.js"></script>
-		<script src="js/app.js"></script>
-	</body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TodoLab: produto didático para a disciplina de Gestão e Qualidade de Software." />
+    <title>TodoLab</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="masthead">
+        <p class="eyebrow"><span>USJT</span> Gestão &amp; Qualidade</p>
+        <h1>Todo<span>Lab</span></h1>
+        <p class="thesis">Código que roda ainda não é evidência de qualidade.</p>
+      </header>
+
+      <section class="workbench" aria-labelledby="todo-title">
+        <div class="workbench__top">
+          <div>
+            <p class="label">Produto em evolução</p>
+            <h2 id="todo-title">Fila de tarefas</h2>
+          </div>
+          <div class="status" title="Quality gate inicial">
+            <span class="status__light"></span>
+            gate 0
+          </div>
+        </div>
+
+        <form id="todo-form" class="composer">
+          <label class="sr-only" for="todo-input">Nova tarefa</label>
+          <input id="todo-input" name="title" autocomplete="off" placeholder="O que precisa ser feito?" />
+          <button type="submit">Adicionar</button>
+        </form>
+
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+        <footer class="workbench__footer">
+          <p id="empty-state">Nenhuma tarefa ainda. Comece com um critério claro.</p>
+          <p class="build-mark">build 0.1 · legado inicial</p>
+        </footer>
+      </section>
+
+      <aside class="contract">
+        <p class="contract__number">01</p>
+        <div>
+          <p class="label">Contrato da rodada</p>
+          <p>A fábrica entrega código. A equipe entrega confiança.</p>
+        </div>
+      </aside>
+    </main>
+    <script type="module" src="/src/app.js"></script>
+  </body>
 </html>

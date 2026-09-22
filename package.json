@@ -1,7 +1,12 @@
 {
+  "name": "todolab-template",
+  "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "todomvc-app-css": "^2.0.0",
-    "todomvc-common": "^1.0.0"
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "lint": "node scripts/lint.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "npm run lint && npm run build"
   }
 }
